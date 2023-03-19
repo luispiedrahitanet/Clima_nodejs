@@ -1,4 +1,6 @@
-const { leerInput, inquirerMenu, pausa } = require("./helpers/inquirer");
+require('dotenv').config()
+
+const { leerInput, inquirerMenu, pausa, listarLugares } = require("./helpers/inquirer");
 const Busquedas = require("./models/busquedas");
 
 const main = async ()=>{
@@ -15,21 +17,26 @@ const main = async ()=>{
         
         switch ( opt ) {
             case 1:
-                // Pedir la ciudad al usuario
-                const lugar = await leerInput( 'Ciudad: ' )
-                busquedas.ciudad( lugar )
+                // ========= Pedir la ciudad al usuario
+                const termino = await leerInput( 'Ciudad: ' )
+                // Buscar los lugares
+                const lugares = await busquedas.ciudad( termino )
+                // Seleccionar el lugar
+                const id = await listarLugares(lugares)
+                const lugarSeleccionado = lugares.find( lugar => lugar.id === id )
+                console.log( lugarSeleccionado )
 
-                // Peticion http para buscar las ciudades que coincidan
+                // ========= Peticion http para buscar las ciudades que coincidan
                 
-                // Mostrar el listado de ciudades para que el usuario seleccione
+                // ========= Mostrar el listado de ciudades para que el usuario seleccione
                 
-                // Peticion hhtp para consultar el clima de la ciudad seleccionada
+                // ========= Peticion hhtp para consultar el clima de la ciudad seleccionada
                 
-                // Mostrar los resultados
+                // ========= Mostrar los resultados
                 console.log( '\n==== Información de la ciudad ====\n'.green )
-                console.log( 'Ciudad:' )
-                console.log( 'Lat:' )
-                console.log( 'Lng:' )
+                console.log( 'Ciudad:', lugarSeleccionado.nombre )
+                console.log( 'Lat:', lugarSeleccionado.latitud )
+                console.log( 'Lng:', lugarSeleccionado.longitud )
                 console.log( 'Temperatura:' )
                 console.log( 'T. Mínima:' )
                 console.log( 'T. Máxima:' )

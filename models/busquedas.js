@@ -12,7 +12,7 @@ class Busquedas{
     // parametros que utiliza axios en la peticion get a Maptiler
     get parametrosMaptiler(){
         return {
-            'key': 'yhuQplY1NtDOO47nIhoP',
+            'key': process.env.MAPTILER_KEY,
             'language': 'es',
             'limit': 5
         }
@@ -32,7 +32,15 @@ class Busquedas{
             // haciendo la petición GET
             const resp = await instaciaAxios.get();
             
-            console.log( resp.data )
+            // retornando la información de las ciudades 
+            return resp.data.features.map( lugar => ({      // de forma explícita se retorna un objeto con '({})'
+                id: lugar.id,
+                nombre: lugar.place_name_es,
+                longitud: lugar.center[1],
+                latitud: lugar.center[0]
+            }))
+
+
         } catch (error) {
             return []   // retornar la lista de lugares encontrados
         }
