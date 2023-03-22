@@ -1,5 +1,4 @@
 const inquirer = require('inquirer')
-require('colors')
 
 const preguntas = [
     {
@@ -26,9 +25,16 @@ const preguntas = [
 const inquirerMenu = async()=>{
     
     console.clear()
-    console.log('=========================='.green)
-    console.log('  SELECCIONE UNA OPCION'.white)
-    console.log('==========================\n'.green)
+    console.log('╔════════════════════════════════════╗'.green)
+    console.log('║ INFORMACIÓN DEL CLIMA EN COLOMBIA  ║'.green)
+    console.log('╠════════════════════════════════════╣'.green)
+    console.log('║          Luis Piedrahita           ║'.green)
+    console.log('║  luispiedrahita.net@gmail.com      ║'.green)
+    console.log('╚════════════════════════════════════╝'.green)
+    console.log()
+    console.log('======================================'.white)
+    console.log('         SELECCIONE UNA OPCION        '.white)
+    console.log('======================================\n'.white)
  
     const { opcion } = await inquirer.prompt(preguntas)     // desestructuramos el objeto 'opción', que devuelve la opción seleccionada
 
