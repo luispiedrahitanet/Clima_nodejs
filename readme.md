@@ -23,10 +23,14 @@
 
 <p>Poner tus claves en las variables de entorno del archivo .env</p>
 
-> MAPTILER_KEY=clave_de_tu_cuenta
 
-> OPENWEATHER_KEY=clave_de_tu_cuenta
+```
+MAPTILER_KEY=clave_de_tu_cuenta
+OPENWEATHER_KEY=clave_de_tu_cuenta
+```
 
 <p>Instale las dependencias y arranque la aplicación con el siguiente comando:</p>
 
-> npm start
+```
+npm start
+```
