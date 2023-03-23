@@ -12,8 +12,8 @@
 <h3>Características</h3>
 
 <ul>
-<li>Hace consumo de la API de Maptiler para consultar las ciudades y las coordenadas</li>
-<li>Utiliza la API de OpenWeather para consultar el clima</li>
+<li>Hace consumo de la API de <a href="https://maptiler.es/" target="_blank">Maptiler</a> para consultar las ciudades y las coordenadas</li>
+<li>Utiliza la API de <a href="https://openweathermap.org/" target="_blank">OpenWeather</a> para consultar el clima</li>
 <li>Guarda los datos en formato json en el disco local</li>
 </ul>
 
